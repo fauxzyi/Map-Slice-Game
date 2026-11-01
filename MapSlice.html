@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>MapSlice — Population Split Game</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="app">
+  <h1>MapSlice</h1>
+  <p class="subtitle">Draw a line that splits each country's <em>population</em> — not its land — into two equal halves.</p>
+
+  <div class="topbar">
+    <div class="roundbadge">Round <span id="roundNum">1</span> / 5</div>
+    <div class="scoretotal">Total score: <span id="totalScore">0</span> / <span id="totalMax">500</span></div>
+  </div>
+
+  <div class="card">
+    <div class="country-header">
+      <h2 id="countryName">Country</h2>
+    </div>
+    <p class="instructions">Drag the two dots to position your line — the line extends across the whole map so you can see the split. Feel free to pan and zoom the real map for a closer look. Use the labelled cities and the roads/towns you can see as clues to where people actually live — most of the land is nearly empty. Press <b>Confirm Split</b> when you're happy with the line.</p>
+
+    <div class="map-wrap">
+      <div id="mapDiv"></div>
+    </div>
+
+    <div class="controls">
+      <button class="btn-primary" id="confirmBtn">Confirm Split</button>
+      <button class="btn-secondary" id="resetBtn">Reset Points</button>
+      <button class="btn-primary" id="nextBtn" style="display:none;">Next Round</button>
+    </div>
+
+    <div class="result-panel" id="resultPanel">
+      <div class="result-row">
+        <span>🔵 Blue region: <b id="pctA">0%</b> of population</span>
+        <span>🔴 Red region: <b id="pctB">0%</b> of population</span>
+      </div>
+      <div class="pct-bar">
+        <div id="barA" style="width:50%"></div><div id="barB" style="width:50%"></div>
+      </div>
+      <div class="score-line">Round score: <span id="roundScore">0</span> / 100</div>
+      <p class="note">The faint dashed line pivots from your blue point and shows where the true 50/50 split would have been.</p>
+    </div>
+
+    <div class="scoreboard">
+      <h3>Scoreboard</h3>
+      <ul class="score-list" id="scoreList"></ul>
+    </div>
+
+    <p class="attribution">Map tiles, country boundaries &amp; city locations from <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap contributors</a>, ODbL 1.0. Population distribution is a stylised approximation for gameplay, not census data.</p>
+  </div>
+</div>
+
+<div class="overlay" id="finalOverlay">
+  <div class="final-card">
+    <h2>Game Over</h2>
+    <div class="final-score" id="finalScoreText">0 / 500</div>
+    <ul class="final-list" id="finalList"></ul>
+    <button class="btn-primary" id="playAgainBtn">Play Again</button>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<script src="countries-data.js"></script>
+<script src="game.js"></script>
+</body>
+</html>

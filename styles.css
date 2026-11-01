@@ -1,0 +1,255 @@
+:root{
+  --bg:#0f172a;
+  --panel:#1b2740;
+  --panel-2:#243252;
+  --text:#e7ecf5;
+  --muted:#9fb0c9;
+  --accent:#5aa9ff;
+  --accentB:#ff6b6b;
+  --good:#4cd97b;
+  --sea:#bcdcf0;
+}
+*{box-sizing:border-box;}
+body{
+  margin:0;
+  font-family:'Segoe UI',system-ui,-apple-system,sans-serif;
+  background:linear-gradient(160deg,#0f172a,#182238);
+  color:var(--text);
+  min-height:100vh;
+  display:flex;
+  justify-content:center;
+  padding:24px 12px 60px;
+}
+.app{
+  width:100%;
+  max-width:980px;
+}
+h1{
+  font-size:1.6rem;
+  margin:0 0 4px;
+  letter-spacing:0.5px;
+}
+.subtitle{
+  color:var(--muted);
+  margin:0 0 18px;
+  font-size:0.95rem;
+}
+.topbar{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-end;
+  flex-wrap:wrap;
+  gap:10px;
+  margin-bottom:14px;
+}
+.roundbadge{
+  background:var(--panel-2);
+  border-radius:10px;
+  padding:8px 14px;
+  font-weight:600;
+  font-size:0.9rem;
+}
+.roundbadge span{color:var(--accent);}
+.scoretotal{
+  background:var(--panel-2);
+  border-radius:10px;
+  padding:8px 14px;
+  font-weight:600;
+  font-size:0.9rem;
+}
+.card{
+  background:var(--panel);
+  border-radius:16px;
+  padding:18px;
+  box-shadow:0 10px 30px rgba(0,0,0,0.35);
+}
+.country-header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:10px;
+}
+.country-header h2{
+  margin:0;
+  font-size:1.25rem;
+}
+.instructions{
+  color:var(--muted);
+  font-size:0.85rem;
+  margin:0 0 12px;
+  line-height:1.4;
+}
+.map-wrap{
+  background:var(--sea);
+  border-radius:12px;
+  overflow:hidden;
+  line-height:0;
+}
+#mapDiv{
+  width:100%;
+  height:520px;
+}
+.handle-icon{
+  width:22px;
+  height:22px;
+  border-radius:50%;
+  border:3px solid #08182b;
+  box-shadow:0 2px 6px rgba(0,0,0,0.5);
+  cursor:grab;
+}
+.handle-icon:active{cursor:grabbing;}
+.handle-a{background:#5aa9ff; border-color:#08182b;}
+.handle-b{background:#ff6b6b; border-color:#3a0d0d;}
+.city-label{
+  background:rgba(32,36,44,0.85);
+  color:#fff;
+  border:none;
+  box-shadow:none;
+  font-weight:600;
+  font-size:13px;
+  padding:2px 7px;
+  border-radius:4px;
+}
+.city-label::before{ display:none; }
+.solid-line{
+  stroke:#ffffff !important;
+  stroke-width:3.5 !important;
+}
+.ideal-line{
+  stroke:#ffffff !important;
+  stroke-width:2.5 !important;
+  stroke-dasharray:8 8;
+  opacity:0.6;
+}
+.region-a{ fill:rgba(90,169,255,0.42) !important; }
+.region-b{ fill:rgba(255,107,107,0.42) !important; }
+.controls{
+  display:flex;
+  gap:10px;
+  margin-top:16px;
+  flex-wrap:wrap;
+  align-items:center;
+}
+button{
+  font-family:inherit;
+  font-size:0.9rem;
+  font-weight:600;
+  padding:10px 18px;
+  border-radius:9px;
+  border:none;
+  cursor:pointer;
+  transition:transform 0.08s ease, filter 0.15s ease;
+}
+button:active{transform:scale(0.97);}
+button:disabled{opacity:0.4; cursor:not-allowed;}
+.btn-primary{background:var(--accent); color:#08182b;}
+.btn-primary:hover:not(:disabled){filter:brightness(1.1);}
+.btn-secondary{background:var(--panel-2); color:var(--text);}
+.btn-secondary:hover:not(:disabled){filter:brightness(1.2);}
+.result-panel{
+  margin-top:16px;
+  background:var(--panel-2);
+  border-radius:12px;
+  padding:14px 16px;
+  display:none;
+}
+.result-panel.show{display:block;}
+.result-row{
+  display:flex;
+  justify-content:space-between;
+  flex-wrap:wrap;
+  gap:8px 20px;
+  font-size:0.95rem;
+  margin-bottom:6px;
+}
+.pct-bar{
+  height:14px;
+  border-radius:7px;
+  overflow:hidden;
+  display:flex;
+  margin:8px 0 10px;
+}
+.pct-bar div:first-child{background:var(--accent);}
+.pct-bar div:last-child{background:var(--accentB);}
+.score-line{
+  font-size:1.15rem;
+  font-weight:700;
+  color:var(--good);
+}
+.note{
+  color:var(--muted);
+  font-size:0.82rem;
+  margin-top:6px;
+}
+.attribution{
+  color:var(--muted);
+  font-size:0.72rem;
+  margin-top:8px;
+  opacity:0.7;
+}
+.attribution a{color:var(--muted);}
+.scoreboard{
+  margin-top:18px;
+}
+.scoreboard h3{
+  font-size:0.95rem;
+  color:var(--muted);
+  margin:0 0 8px;
+  text-transform:uppercase;
+  letter-spacing:0.5px;
+}
+.score-list{
+  list-style:none;
+  padding:0;
+  margin:0;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+  gap:8px;
+}
+.score-list li{
+  background:var(--panel-2);
+  border-radius:8px;
+  padding:8px 10px;
+  font-size:0.85rem;
+}
+.score-list b{color:var(--accent);}
+.overlay{
+  position:fixed;
+  inset:0;
+  background:rgba(6,10,20,0.75);
+  display:none;
+  align-items:center;
+  justify-content:center;
+  padding:20px;
+  z-index:5000; /* above Leaflet's panes/controls, which go up to ~1000 */
+}
+.overlay.show{display:flex;}
+.final-card{
+  background:var(--panel);
+  border-radius:16px;
+  padding:30px;
+  max-width:480px;
+  width:100%;
+  text-align:center;
+  box-shadow:0 20px 50px rgba(0,0,0,0.5);
+}
+.final-card h2{margin-top:0;}
+.final-score{
+  font-size:3rem;
+  font-weight:800;
+  color:var(--good);
+  margin:10px 0;
+}
+.final-list{
+  list-style:none;
+  padding:0;
+  margin:16px 0;
+  text-align:left;
+}
+.final-list li{
+  display:flex;
+  justify-content:space-between;
+  padding:6px 0;
+  border-bottom:1px solid rgba(255,255,255,0.08);
+  font-size:0.92rem;
+}
