@@ -4,13 +4,15 @@
 // COUNTRY_DEFS is provided by countries-data.js (loaded before this file)
 
 // ---------- Tile source config ----------
-// Standard free OpenStreetMap raster tiles (no API key needed).
+// Free Humanitarian OpenStreetMap raster tiles (no API key needed).
+// tile.openstreetmap.org can show "Access blocked" tiles when the browser
+// sends no Referer header, e.g. when this page is opened as a local file.
 // To switch to MapTiler's "OMT" (OpenMapTiles) style once you have a free
 // API key from maptiler.com, just replace `url` below with e.g.:
 //   'https://api.maptiler.com/maps/openstreetmap/{z}/{x}/{y}.png?key=YOUR_KEY'
 const TILE_CONFIG = {
-  url: 'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
-  attribution: '&copy; <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a> contributors',
+  url: 'https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png',
+  attribution: '&copy; <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a> contributors, tiles style by <a href="https://www.hotosm.org/" target="_blank" rel="noopener">Humanitarian OpenStreetMap Team</a>, hosted by <a href="https://openstreetmap.fr/" target="_blank" rel="noopener">OpenStreetMap France</a>',
   maxZoom: 18
 };
 

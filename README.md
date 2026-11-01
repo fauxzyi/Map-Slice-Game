@@ -62,5 +62,6 @@ The population figures are a stylised approximation for gameplay, not census dat
 
 ## Credits
 
-- Map tiles, country boundaries and city locations: © [OpenStreetMap contributors](https://www.openstreetmap.org/copyright), ODbL 1.0
+- Map data, country boundaries and city locations: © [OpenStreetMap contributors](https://www.openstreetmap.org/copyright), ODbL 1.0
+- Map tile style: [Humanitarian OpenStreetMap Team](https://www.hotosm.org/), hosted by [OpenStreetMap France](https://openstreetmap.fr/)
 - Interactive map: [Leaflet](https://leafletjs.com/)
